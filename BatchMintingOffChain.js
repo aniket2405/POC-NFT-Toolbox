@@ -1,3 +1,24 @@
+/*
+
+This sample code demonstrates how we can use off-chain algorithms 
+to optimize the storage services and achieve super-fast batch minting of NFTs.
+This provides an idea of how to use Merkle trees to batch NFTs on-chain
+
+We first define the MAX_BATCH_SIZE constant and the batchSize variable, 
+which determines the number of tokens to be included in each batch. 
+We then split the tokenData array into batches.
+
+Next, we create a Merkle tree for each batch using the MerkleTree class, 
+which is a data structure used to efficiently verify the authenticity 
+of a piece of data within a large data set. 
+We calculate the Merkle root for each tree using the getRoot method.
+
+We then store the Merkle roots on the blockchain using the setMerkleRoot function of the contract object. 
+Finally, we mint tokens in batches using the batchMintNFTs function and the Merkle proofs. 
+We iterate through each batch and extract the tokenIds and proofs arrays, 
+which we pass as input parameters to the batchMintNFTs function.
+*/
+
 const MAX_BATCH_SIZE = 1000;
 const batchSize = 500;
 const tokenData = []; // array of token data to be minted
