@@ -1,5 +1,22 @@
 pragma solidity ^0.8.0;
 
+/*
+This Solidity contract TokenBatchMinting demonstrates how to use a Merkle tree 
+to verify the validity of token data and achieve efficient batch minting of NFTs.
+
+The contract defines a struct TokenData that represents the data associated with a token, 
+including its ID, name, and owner. The contract uses a mapping to store the token data, 
+and provides a function addTokenData to add new token data to the mapping.
+
+The contract also defines a function setMerkleRoot to set the Merkle root for the token data,
+and a function verifyTokenData to verify the validity of a given token data using a Merkle proof. 
+The verifyTokenData function takes in the token ID, name, owner, and a Merkle proof as inputs, 
+and returns true if the token data is valid, and false otherwise.
+
+The contract also provides a function verifyMerkleProof to verify a general Merkle proof, 
+which takes in the root, leaf, and proof as inputs, and returns true if the proof is valid, and false otherwise.
+*/
+
 contract TokenBatchMinting {
     
     struct TokenData {
